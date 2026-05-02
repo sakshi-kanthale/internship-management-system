@@ -18,25 +18,25 @@ function Dashboard() {
   }, []);
 
   const fetchTasks = async () => {
-    const res = await axios.get('http://localhost:5000/api/tasks', config);
+    const res = await axios.get('https://internship-management-api.onrender.com/api/tasks', config);
     setTasks(res.data);
   };
 
   const addTask = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/tasks', { title, description }, config);
+    await axios.post('https://internship-management-api.onrender.com/api/tasks', { title, description }, config);
     setTitle('');
     setDescription('');
     fetchTasks();
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:5000/api/tasks/${id}`, config);
+    await axios.delete(`https://internship-management-api.onrender.com/api/tasks/${id}`, config);
     fetchTasks();
   };
 
   const updateStatus = async (id, status) => {
-    await axios.put(`http://localhost:5000/api/tasks/${id}`, { status }, config);
+    await axios.put(`https://internship-management-api.onrender.com/api/tasks/${id}`, { status }, config);
     fetchTasks();
   };
 
